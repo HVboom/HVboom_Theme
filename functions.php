@@ -105,9 +105,11 @@ add_action( 'widgets_init', 'hvboom_widgets_init' );
  * Enqueue scripts and styles.
  */
 function hvboom_scripts() {
+	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/bootstrap-styles.css', '3.3.4', 'all' );
+
 	wp_enqueue_style( 'hvboom-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'hvboom-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-sass/assets/javascripts/bootstrap.js', array('jquery'), '3.3.4', true );
 
 	wp_enqueue_script( 'hvboom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
