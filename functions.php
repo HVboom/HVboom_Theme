@@ -5,7 +5,7 @@
  * @package HVboom
  */
 
-if ( ! function_exists( 'hvboom_setup' ) ) :
+if (! function_exists('hvboom_setup')) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -21,10 +21,10 @@ function hvboom_setup() {
 	 * If you're building a theme based on HVboom, use a find and replace
 	 * to change 'hvboom' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'hvboom', get_template_directory() . '/languages' );
+	load_theme_textdomain('hvboom', get_template_directory() . '/languages');
 
 	// Add default posts and comments RSS feed links to head.
-	add_theme_support( 'automatic-feed-links' );
+	add_theme_support('automatic-feed-links');
 
 	/*
 	 * Let WordPress manage the document title.
@@ -32,44 +32,44 @@ function hvboom_setup() {
 	 * hard-coded <title> tag in the document head, and expect WordPress to
 	 * provide it for us.
 	 */
-	add_theme_support( 'title-tag' );
+	add_theme_support('title-tag');
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
-	//add_theme_support( 'post-thumbnails' );
+	//add_theme_support('post-thumbnails');
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'hvboom' ),
-	) );
+	register_nav_menus(array(
+		'primary' => esc_html__('Primary Menu', 'hvboom'),
+	));
 
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
 	 */
-	add_theme_support( 'html5', array(
+	add_theme_support('html5', array(
 		'search-form', 'comment-form', 'comment-list', 'gallery', 'caption',
-	) );
+	));
 
 	/*
 	 * Enable support for Post Formats.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
-	add_theme_support( 'post-formats', array(
+	add_theme_support('post-formats', array(
 		'aside', 'image', 'video', 'quote', 'link',
-	) );
+	));
 
 	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'hvboom_custom_background_args', array(
+	add_theme_support('custom-background', apply_filters('hvboom_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
-	) ) );
+	)));
 }
 endif; // hvboom_setup
-add_action( 'after_setup_theme', 'hvboom_setup' );
+add_action('after_setup_theme', 'hvboom_setup');
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -79,9 +79,9 @@ add_action( 'after_setup_theme', 'hvboom_setup' );
  * @global int $content_width
  */
 function hvboom_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'hvboom_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters('hvboom_content_width', 640);
 }
-add_action( 'after_setup_theme', 'hvboom_content_width', 0 );
+add_action('after_setup_theme', 'hvboom_content_width', 0);
 
 /**
  * Register widget area.
@@ -89,35 +89,52 @@ add_action( 'after_setup_theme', 'hvboom_content_width', 0 );
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
  */
 function hvboom_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'hvboom' ),
+	register_sidebar(array(
+		'name'          => esc_html__('Sidebar', 'hvboom'),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>',
-	) );
+	));
 }
-add_action( 'widgets_init', 'hvboom_widgets_init' );
+add_action('widgets_init', 'hvboom_widgets_init');
 
 /**
  * Enqueue scripts and styles.
  */
 function hvboom_scripts() {
-	wp_enqueue_style( 'bootstrap-styles', get_template_directory_uri() . '/bootstrap-styles.css', '3.3.4', 'all' );
+	wp_enqueue_style('bootstrap-styles', get_template_directory_uri() . '/bootstrap-styles.css', '3.3.4', 'all');
 
-	wp_enqueue_style( 'hvboom-style', get_stylesheet_uri() );
+	wp_enqueue_style('hvboom-style', get_stylesheet_uri());
 
-	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap-sass/assets/javascripts/bootstrap.js', array('jquery'), '3.3.4', true );
+	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap-sass/assets/javascripts/bootstrap.js', array('jquery'), '3.3.4', true);
 
-	wp_enqueue_script( 'hvboom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
+	wp_enqueue_script('hvboom-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true);
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if (is_singular() && comments_open() && get_option('thread_comments')) {
+		wp_enqueue_script('comment-reply');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'hvboom_scripts' );
+add_action('wp_enqueue_scripts', 'hvboom_scripts');
+
+
+/**
+ * Add Respond.js for IE
+ */
+if(!function_exists('ie_scripts')) {
+	function ie_scripts() {
+	 	echo '<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->' . PHP_EOL;
+	  echo '<!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->' . PHP_EOL; 
+	  echo '<!--[if lt IE 9]>' . PHP_EOL;
+	  echo '  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>' . PHP_EOL;
+	  echo '  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>' . PHP_EOL;
+	  echo '<![endif]-->' . PHP_EOL;
+  }
+  add_action('wp_head', 'ie_scripts');
+} // end if
+
 
 /**
  * Implement the Custom Header feature.
