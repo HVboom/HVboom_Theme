@@ -107,6 +107,8 @@ add_action('widgets_init', 'hvboom_widgets_init');
 function hvboom_scripts() {
 	wp_enqueue_style('bootstrap-styles', get_template_directory_uri() . '/bootstrap-styles.css', '3.3.4', 'all');
 
+	wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome.css', '4.3.0', 'all');
+
 	wp_enqueue_style('hvboom-style', get_stylesheet_uri());
 
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/bootstrap-sass/assets/javascripts/bootstrap.js', array('jquery'), '3.3.4', true);
