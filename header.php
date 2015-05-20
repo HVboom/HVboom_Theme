@@ -6,31 +6,58 @@
  *
  * @package HVboom
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-<head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
-<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+  <head>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<?php wp_head(); ?>
-</head>
+    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
-<body <?php body_class(); ?>>
-<div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'hvboom' ); ?></a>
+    <?php wp_head(); ?>
+  </head>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div><!-- .site-branding -->
+  <body <?php body_class(); ?>>
+    <div id="page" class="hfeed site">
+	    <header id="masthead" class="site-header" role="banner">
+        <nav role="navigation">
+          <div class="navbar navbar-static-top navbar-default">
+            <div class="container">
+              <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'hvboom' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+                <a class="navbar-brand"
+                   href="<?php echo esc_url( home_url( '/' ) ); ?>"
+                   title="<?php bloginfo( 'name' ) ?>"
+                   rel="homepage">
+                  <?php bloginfo( 'name' ) ?>
+                </a>
+              </div>
 
-	<div id="content" class="site-content">
+              <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <?php
+                  $args = array(
+                    'theme_location' => 'primary',
+                    'depth'          => 2,
+                    'container'      => false,
+                    'menu_class'     => 'nav navbar-nav navbar-right',
+                    'walker'         => new Bootstrap_Walker_Nav_Menu()
+                    );
+
+                  if (has_nav_menu('primary')) {
+                    wp_nav_menu($args);
+                  }
+                ?>
+              </div>
+            </div>
+          </div>           
+		    </nav><!-- #site-navigation -->
+	    </header><!-- #masthead -->
+
+	  <div id="content" class="site-content">
