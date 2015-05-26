@@ -10,10 +10,10 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+    <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
     <?php wp_head(); ?>
   </head>
@@ -33,12 +33,10 @@
                 </button>
 
                 <a class="navbar-brand"
-                   href="<?php echo esc_url( home_url( '/' ) ); ?>"
-                   title="<?php bloginfo( 'name' ) ?>"
-                   rel="homepage">
-                  <?php bloginfo( 'name' ) ?>
-                </a>
-              </div>
+                   href="<?php echo esc_url(home_url('/')); ?>"
+                   title="<?php bloginfo('name') ?>"
+                   rel="homepage"><?php bloginfo('name') ?></a>
+              </div><!-- #navbar-header -->           
 
               <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <?php
@@ -48,16 +46,16 @@
                     'container'      => false,
                     'menu_class'     => 'nav navbar-nav navbar-right',
                     'walker'         => new Bootstrap_Walker_Nav_Menu()
-                    );
+                   );
 
                   if (has_nav_menu('primary')) {
                     wp_nav_menu($args);
                   }
                 ?>
-              </div>
-            </div>
-          </div>           
+              </div><!-- #navbar-collapse -->           
+            </div><!-- #container -->           
+          </div><!-- #navbar -->           
 		    </nav><!-- #site-navigation -->
 	    </header><!-- #masthead -->
 
-	  <div id="content" class="site-content">
+      <div id="content" class="site-content container">

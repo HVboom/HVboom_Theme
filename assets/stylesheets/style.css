@@ -104,7 +104,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   display: block; }
 
 .hentry {
-  margin: 0 0 1.5em; }
+  margin: 0 0 1.8em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1.8em; }
 
 .byline,
 .updated:not(.published) {
@@ -123,6 +125,14 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   clear: both;
   margin: 0 0 1.5em; }
 
+.entry-meta span {
+  margin-right: 3em;
+  display: inline-block; }
+  .entry-meta span:last-child {
+    margin-right: 0; }
+  .entry-meta span .fa {
+    color: #bcbcbc; }
+
 /*--------------------------------------------------------------
 ## Asides
 --------------------------------------------------------------*/
@@ -133,11 +143,108 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+10.3 Comments
+--------------------------------------------------------------*/
 .comment-content a {
   word-wrap: break-word; }
 
-.bypostauthor {
-  display: block; }
+.comments-title,
+.comment-reply-title {
+  padding-bottom: 9px;
+  margin: 40px 0 20px 0;
+  border-bottom: 1px solid #eee; }
+
+ol.comment-list {
+  list-style: none;
+  padding-left: 0; }
+
+.comment-author .avatar {
+  margin-right: 25px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  padding: 4px; }
+
+.comment-meta {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+.comment-details {
+  overflow: hidden;
+  zoom: 1;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ddd; }
+
+.comment-details .reply {
+  margin-top: 10px; }
+
+.comment-date > a {
+  font-size: 11px;
+  color: #777;
+  margin-right: 10px; }
+
+#commentform #comment {
+  width: 100% !important; }
+
+#commentform #submit {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
+
+#commentform #submit:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad; }
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
+#colophon {
+  margin-top: 50px;
+  border-top: 1px solid #ddd;
+  padding-top: 15px; }
+  #colophon .footer-menu {
+    margin-left: 0;
+    padding: 0 0 30px 0; }
+    #colophon .footer-menu li {
+      display: inline;
+      list-style-type: none; }
+      #colophon .footer-menu li a {
+        border-left: 1px solid #ddd;
+        padding: 0 8px; }
+      #colophon .footer-menu li:first-child > a {
+        border-left: none;
+        padding: 0 8px 0 0; }
+
+#primary, #secondary {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto; }
 
 /*--------------------------------------------------------------
 # Infinite scroll
@@ -166,7 +273,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 /* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
-object {
+object,
+img {
   max-width: 100%; }
 
 /*--------------------------------------------------------------

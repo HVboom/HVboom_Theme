@@ -10,12 +10,26 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'hvboom' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'hvboom' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'hvboom' ), 'hvboom', '<a href="http://hvboom.ch" rel="designer">HVboom</a>' ); ?>
-		</div><!-- .site-info -->
+	<footer id="colophon" class="site-footer container" role="contentinfo">
+    <div class="row">
+			<div class="col-md-6">
+				<?php if (has_nav_menu('footer', 'hvboom')) { ?>
+          <nav role="navigation">
+            <?php wp_nav_menu(array(
+              'container'       => '',
+              'menu_class'      => 'footer-menu',
+              'theme_location'  => 'footer')
+            ); ?>
+          </nav>
+        <?php } ?>
+			</div>
+
+			<div class="col-md-6">
+        <p class="text-right">&copy; <?php _e('Copyright', 'hvboom'); ?> <?php echo date('Y'); ?> - <a href="<?php echo esc_url(home_url('/')); ?>"
+                   title="<?php bloginfo('name') ?>"
+                   rel="homepage"><?php bloginfo('name') ?></a></p>
+			</div>
+    </div><!-- .row -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

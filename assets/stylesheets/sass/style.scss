@@ -96,6 +96,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "site/site";
 
+// Wordwrap on long lines
+#primary, #secondary {
+  @include word-wrap();
+}
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/

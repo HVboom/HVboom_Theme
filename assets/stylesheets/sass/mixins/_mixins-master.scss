@@ -21,3 +21,19 @@
 @mixin clearfix-after() {
 	clear: both;
 }
+
+// Breakup long lines
+@mixin word-wrap() {
+  word-break:     break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens:    auto;
+  hyphens:         auto;
+}
+
+// Shorten long lines
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+

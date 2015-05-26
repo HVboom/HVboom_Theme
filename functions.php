@@ -44,6 +44,7 @@ function hvboom_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(array(
 		'primary' => esc_html__('Primary Menu', 'hvboom'),
+		'footer' => esc_html__('Footer Menu', 'hvboom'),
 	));
 
 	/*
@@ -95,8 +96,8 @@ function hvboom_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
 	));
 }
 add_action('widgets_init', 'hvboom_widgets_init');
@@ -171,3 +172,8 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load Bootstrap Menu.
  */
 require get_template_directory() . '/inc/bootstrap-walker.php';
+
+/**
+ * Comments callback.
+ */
+require get_template_directory() . '/inc/comments-callback.php';

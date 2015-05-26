@@ -1,0 +1,30 @@
+/*--------------------------------------------------------------
+Footer
+--------------------------------------------------------------*/
+#colophon {
+	margin-top: 50px;
+
+	border-top: 1px solid #ddd;
+	padding-top: 15px;
+
+
+  .footer-menu {
+    margin-left:0;
+    padding:0 0 30px 0;
+
+    li {
+      display:inline;
+      list-style-type:none;
+
+      a {
+        border-left:1px solid #ddd;
+        padding: 0 8px;
+      }
+
+      &:first-child > a {
+        border-left:none;
+        padding:0 8px 0 0;
+      }
+    }
+  }
+}
