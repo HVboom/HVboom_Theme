@@ -99,6 +99,16 @@ function hvboom_widgets_init() {
 		'before_title'  => '<h4 class="widget-title">',
 		'after_title'   => '</h4>',
 	));
+
+	register_sidebar(array(
+		'name'          => esc_html__('Contact', 'hvboom'),
+		'id'            => 'contact',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	));
 }
 add_action('widgets_init', 'hvboom_widgets_init');
 
@@ -110,9 +120,9 @@ function hvboom_scripts() {
   $javascript_uri =  get_template_directory_uri() . '/assets/javascripts';
   $vendor_bootstrap_javascript_uri =  get_template_directory_uri() . '/vendor/bootstrap-sass/assets/javascripts';
 
-	wp_enqueue_style('bootstrap-styles', $stylesheet_uri . '/bootstrap-styles.css', '3.3.4', 'all');
-
 	wp_enqueue_style('font-awesome', $stylesheet_uri . '/font-awesome.css', '4.3.0', 'all');
+
+	wp_enqueue_style('bootstrap-styles', $stylesheet_uri . '/bootstrap-styles.css', '3.3.4', 'all');
 
 	wp_enqueue_style('hvboom-style', get_stylesheet_uri());
 
