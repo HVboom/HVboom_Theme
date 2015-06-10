@@ -84,6 +84,48 @@ function hvboom_content_width() {
 }
 add_action('after_setup_theme', 'hvboom_content_width', 0);
 
+
+/**
+ *******
+ * Security settings inspired from book Building Web Apps with WordPress / 78-1-4493-6407-6, chapter 8: Secure WordPress
+ *******
+ */
+
+/**
+ * Obscure, if the username or the password was wrong
+ */
+add_filter('login_errors', create_function('$a', '"Invalid username or password.";'));
+
+/**
+ * Don't write the WordPress version into generated files
+ */
+add_filter('the_generator', '__return_null');
+
+
+/**
+ * Hide standard login url
+ */
+//
+// **** Not working - get always a 404  ****
+//
+// function hvboom_wp_login_filter($url, $path, $orig_scheme) {
+//   $old = array("/(wp-login\.php)/");
+//   $new = array("members");
+// 
+//   return preg_replace($old, $new, $url, 1);
+// }
+// add_filter('site_url', 'hvboom_wp_login_filter', 10, 3);
+// 
+// function hvboom_wp_login_redirect() {
+//   if (strpos( $_SERVER["REQUEST_URI"], 'members') === false) {
+//     wp_redirect(site_url());
+//     exit();
+//   }
+// }
+// add_action('login_init', 'hvboom_wp_login_redirect');
+
+
+
 /**
  * Register widget area.
  *
