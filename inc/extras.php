@@ -152,3 +152,15 @@ function bootstrap3_comment_form($args) {
   return $args;
 }
 add_filter('comment_form_defaults', 'bootstrap3_comment_form');
+
+
+/**
+ * Custom function to highlight search terms
+ */
+function search_excerpt_highlight() {
+  $excerpt = get_the_excerpt();
+  $keys = implode('|', explode(' ', get_search_query()));
+  $excerpt = preg_replace('/(' . $keys .')/iu', '<mark>\0</mark>', $excerpt);
+
+  echo '<p>' . $excerpt . '</p>';
+}
