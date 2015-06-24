@@ -162,10 +162,6 @@ function hvboom_scripts() {
   $javascript_uri =  get_template_directory_uri() . '/assets/javascripts';
   $vendor_bootstrap_javascript_uri =  get_template_directory_uri() . '/vendor/bootstrap-sass/assets/javascripts';
 
-	wp_enqueue_style('font-awesome', $stylesheet_uri . '/font-awesome.css', '4.3.0', 'all');
-
-	wp_enqueue_style('bootstrap-styles', $stylesheet_uri . '/bootstrap-styles.css', '3.3.4', 'all');
-
 	wp_enqueue_style('hvboom-style', get_stylesheet_uri());
 
 	wp_enqueue_script('bootstrap-js', $vendor_bootstrap_javascript_uri . '/bootstrap.js', array('jquery'), '3.3.4', true);
